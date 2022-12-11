@@ -15,3 +15,9 @@ Both can successfully launch the node "nav2_costmap_2d" as the following picture
 ![result](./result.png)
 But it sticks on "Creating Costmap".
 For now, I don't know why. 
+
+Then, i compile package "navigation2" from source code and test.
+Lifecycle manager servers as client and costmap_2d servers as server.
+![code](./Screenshot%20from%202022-12-11%2015-49-41.png)
+As shown in 108 lines code, Lifecycle manager can not "wait_for_service".
+I am debugging on it.
