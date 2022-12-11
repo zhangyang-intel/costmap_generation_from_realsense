@@ -34,5 +34,5 @@ ros2 launch realsense2_camera rs_launch.py device_type:=d455 initial_reset:=true
 ros2 launch demo.launch.py
 ```
 Rviz result is as follows:
-![result](./result.png)
+![result](./rviz.png)
 Maybe we can talk about it further.
