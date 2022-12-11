@@ -1,11 +1,11 @@
-# local_costmap:
-#   local_costmap:
+# costmap:
+#   costmap:
 #     ros__parameters:
 #       update_frequency: 5.0
 #       publish_frequency: 2.0
 #       global_frame: odom
 #       robot_base_frame: base_link
-#       use_sim_time: True
+#       use_sim_time: False
 #       rolling_window: true
 #       width: 3
 #       height: 3
@@ -35,12 +35,12 @@
 #       static_layer:
 #         map_subscribe_transient_local: True
 #       always_send_full_costmap: True
-#   local_costmap_client:
+#   costmap_client:
 #     ros__parameters:
-#       use_sim_time: True
-#   local_costmap_rclcpp_node:
+#       use_sim_time: False
+#   costmap_rclcpp_node:
 #     ros__parameters:
-#       use_sim_time: True
+#       use_sim_time: False
 costmap:
   costmap:
     ros__parameters:
@@ -85,7 +85,10 @@ costmap:
       #observation_sources: base_scan
       #base_scan: {data_type: LaserScan, expected_update_rate: 0.4,
       #  observation_persistence: 0.0, marking: true, clearing: true, max_obstacle_height: 0.4, min_obstacle_height: 0.08}
-      plugins: ["voxel_layer", "inflation_layer"]
+      plugins: ["static_layer","voxel_layer", "inflation_layer"]
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_topic: "/univloc_server/map"
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
