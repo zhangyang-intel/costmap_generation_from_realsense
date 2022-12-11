@@ -21,3 +21,18 @@ Lifecycle manager servers as client and costmap_2d servers as server.
 ![code](./Screenshot%20from%202022-12-11%2015-49-41.png)
 As shown in 108 lines code, Lifecycle manager can not "wait_for_service".
 I am debugging on it.
+
+There seems to be a bug in source code of "navigation2"
+In class "Lifecycle manager", the service id is "costmap/change_state". But in class "costmap_2d_ros", the service id is "/costmap/costmap/change_state".
+Then i modify the "navigation2" source code as follows:
+![modify](./modify_code.png)
+Finally, it works.
+
+Launch realsense and costmap using the following command:
+```
+ros2 launch realsense2_camera rs_launch.py device_type:=d455 initial_reset:=true log_level:=info filters:=pointcloud align_depth:=true
+ros2 launch demo.launch.py
+```
+Rviz result is as follows:
+![result](./result.png)
+Maybe we can talk about it further.
