@@ -132,7 +132,7 @@ def generate_launch_description():
             executable='nav2_costmap_2d',
             name='nav2_costmap_2d',
             output='screen',
-            parameters=[{'/home/zy/ws/costmap_generation_from_realsense/example_params.yaml'}],
+            parameters=[{'/home/zy/ws/nav2_ws/example_params.yaml'}],
             ),
 
 
